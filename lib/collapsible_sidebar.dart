@@ -51,6 +51,7 @@ class CollapsibleSidebar extends StatefulWidget {
       spreadRadius: 0.01,
       offset: Offset(3, 3),
     ),],
+    this.currentIndex,
   });
 
   final String title, toggleTitle;
@@ -83,6 +84,8 @@ class CollapsibleSidebar extends StatefulWidget {
   final Curve curve;
   final VoidCallback? onTitleTap;
   final List<BoxShadow> sidebarBoxShadow;
+  // Special params
+  final int? currentIndex;
 
   @override
   _CollapsibleSidebarState createState() => _CollapsibleSidebarState();
@@ -216,7 +219,7 @@ class _CollapsibleSidebarState extends State<CollapsibleSidebar>
                         children: [
                           CollapsibleItemSelection(
                             height: _maxOffsetY,
-                            offsetY: _maxOffsetY * _selectedItemIndex,
+                            offsetY: _maxOffsetY * (widget.currentIndex ?? _selectedItemIndex),
                             color: widget.selectedIconBox,
                             duration: widget.duration,
                             curve: widget.curve,
