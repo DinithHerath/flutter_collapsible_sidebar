@@ -41,6 +41,7 @@ class CollapsibleSidebar extends StatefulWidget {
     this.showToggleButton = true,
     this.topPadding = 0,
     this.bottomPadding = 0,
+    this.namePadding = 0,
     this.fitItemsToBottom = false,
     required this.body,
     this.onTitleTap,
@@ -72,6 +73,7 @@ class CollapsibleSidebar extends StatefulWidget {
       itemPadding = 10,
       topPadding,
       bottomPadding,
+      namePadding,
       screenPadding;
   final IconData toggleButtonIcon;
   final Color backgroundColor,
@@ -318,7 +320,7 @@ class _CollapsibleSidebarState extends State<CollapsibleSidebar>
   Widget get _toggleButton {
     return CollapsibleItemWidget(
       onHoverPointer: widget.onHoverPointer,
-      padding: widget.itemPadding,
+      padding: widget.namePadding,
       offsetX: _offsetX,
       scale: _fraction,
       leading: Transform.rotate(
